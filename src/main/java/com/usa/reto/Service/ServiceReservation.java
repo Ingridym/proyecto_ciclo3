@@ -52,7 +52,7 @@ public class ServiceReservation {
             return repository.save(r);
         }else{
             Optional<Reservation> rAux = repository.getReservation(r.getIdReservation());
-            if(rAux.isEmpty()){
+            if(rAux.toString().isEmpty()){
                 return repository.save(r);
             }else{
                 return r;
@@ -68,7 +68,7 @@ public class ServiceReservation {
     public Reservation update(Reservation reservation){
         if(reservation.getIdReservation()!=null){
             Optional<Reservation> rAux = repository.getReservation(reservation.getIdReservation());
-            if(!rAux.isEmpty()){
+            if(!rAux.toString().isEmpty()){
 
                 if(reservation.getStartDate()!=null){
                     rAux.get().setStartDate(reservation.getStartDate());

@@ -26,7 +26,7 @@ public class ServiceMessage {
             return repository.save(m);
         }else{
             Optional<Message> mAux = repository.getMessage(m.getIdMessage());
-            if(mAux.isEmpty()){
+            if(mAux.toString().isEmpty()){
                 return repository.save(m);
             }else{
                 return m;
@@ -37,7 +37,7 @@ public class ServiceMessage {
      public Message update(Message message){
         if(message.getIdMessage()!=null){
             Optional<Message> mAux = repository.getMessage(message.getIdMessage());
-            if(!mAux.isEmpty()){
+            if(!mAux.toString().isEmpty()){
                 if(message.getMessageText()!=null){
                     mAux.get().setMessageText(message.getMessageText());
                 }

@@ -26,7 +26,7 @@ public class ServiceCloud {
             return repository.save(c);
         }else{
             Optional<Cloud> cAux = repository.getCloud(c.getId());
-            if(cAux.isEmpty()){
+            if(cAux.toString().isEmpty()){
                 return repository.save(c);
             }else{
                 return c;
@@ -37,7 +37,7 @@ public class ServiceCloud {
     public Cloud update(Cloud cloud){
 	if(cloud.getId()!=null){
             Optional<Cloud> cAux = repository.getCloud(cloud.getId());
-            if(!cAux.isEmpty()){
+            if(!cAux.toString().isEmpty()){
 		if(cloud.getName()!=null){
                     cAux.get().setName(cloud.getName());
 		}

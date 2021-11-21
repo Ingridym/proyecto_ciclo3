@@ -26,7 +26,7 @@ public class ServiceAdmin {
             return repository.save(c);
         }else{
             Optional<Admin> aAux = repository.getAdmin(c.getIdAdmin());
-            if(aAux.isEmpty()){
+            if(aAux.toString().isEmpty()){
                 return repository.save(c);
             }else{
                 return c;
@@ -37,7 +37,7 @@ public class ServiceAdmin {
     public Admin update(Admin admin){
 	if(admin.getIdAdmin()!=null){
             Optional<Admin> aAux = repository.getAdmin(admin.getIdAdmin());
-            if(!aAux.isEmpty()){
+            if(!aAux.toString().isEmpty()){
 		if(admin.getName()!=null){
                     aAux.get().setName(admin.getName());
 		}

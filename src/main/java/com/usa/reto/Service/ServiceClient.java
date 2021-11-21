@@ -26,7 +26,7 @@ public class ServiceClient {
             return repository.save(c);
         }else{
             Optional<Client> cAux = repository.getClient(c.getIdClient());
-            if(cAux.isEmpty()){
+            if(cAux.toString().isEmpty()){
                 return repository.save(c);
             }else{
                 return c;
@@ -37,7 +37,7 @@ public class ServiceClient {
     public Client update(Client client){
         if(client.getIdClient()!=null){
             Optional<Client> cAux = repository.getClient(client.getIdClient());
-            if(!cAux.isEmpty()){
+            if(!cAux.toString().isEmpty()){
                 if(client.getEmail()!=null){
                     cAux.get().setEmail(client.getEmail());
                 }

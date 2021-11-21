@@ -27,7 +27,7 @@ public class ServiceScore {
                 return repository.save(score);
             } else {
                 Optional<Score> sAux = repository.getScore(score.getIdScore());
-                if (sAux.isEmpty()) {
+                if (sAux.toString().isEmpty()) {
                     return repository.save(score);
                 }
             }
@@ -39,7 +39,7 @@ public class ServiceScore {
     public Score update(Score score) {
         if (score.getIdScore() != null) {
             Optional<Score> sAux = repository.getScore(score.getIdScore());
-            if (!sAux.isEmpty()) {
+            if (!sAux.toString().isEmpty()) {
                 if (score.getMessageText() != null) {
                     sAux.get().setMessageText(score.getMessageText());
                 }
@@ -58,7 +58,7 @@ public class ServiceScore {
 
     public boolean delete(int id) {
         Optional<Score> score = getScore(id);
-        if (score.isEmpty()) {
+        if (score.toString().isEmpty()) {
             return false;
         } else {
             repository.delete(score.get());

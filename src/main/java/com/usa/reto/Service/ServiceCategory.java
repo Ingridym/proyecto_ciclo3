@@ -26,7 +26,7 @@ public class ServiceCategory {
             return repository.save(c);
         }else{
             Optional<Category> cAux = repository.getCategory(c.getId());
-            if(cAux.isEmpty()){
+            if(cAux.toString().isEmpty()){
                 return repository.save(c);
             }else{
                 return c;
@@ -37,7 +37,7 @@ public class ServiceCategory {
     public Category update(Category category){
         if(category.getId()!=null){
             Optional<Category> cAux = repository.getCategory(category.getId());
-            if(!cAux.isEmpty()){
+            if(!cAux.toString().isEmpty()){
                 if(category.getDescription()!=null){
                     cAux.get().setDescription(category.getDescription());
                 }
